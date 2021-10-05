@@ -1,5 +1,5 @@
 <script>
-	import CardBusqueda from '../components/CardBusqueda.svelte';
+	import CardBusqueda from '../components/CardBusqueda/CardBusqueda.svelte';
 </script>
 
 <svelte:head>
