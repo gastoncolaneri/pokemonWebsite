@@ -1,7 +1,4 @@
-import { writable } from 'svelte/store'
+import { writable } from 'svelte/store';
 
-const pokemon = writable('Pikachu')
- 
-export default pokemon
-
-
+export const pokemon = writable('');
+export const switcher = writable(true);

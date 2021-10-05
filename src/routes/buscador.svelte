@@ -6,6 +6,4 @@
 	<title>Buscador</title>
 </svelte:head>
 
-<h1>Buscador</h1>
-
 <CardBusqueda />
