@@ -36,7 +36,12 @@
 						<h2 class="mdc-typography--button" style="margin: 0;">{region}</h2>
 					</div>
 					<PrimaryAction>
-						<Image src={`/img/${region}.png`} alt="Image" aspectRatio="1x1" class="imgRegion" />
+						<Image
+							src={`/img/${region}.png`}
+							alt="Image"
+							aspectRatio="1x1"
+							style="max-height: 300px"
+						/>
 					</PrimaryAction>
 				</Card>
 			</Cell>
@@ -51,7 +56,4 @@
 </div>
 
 <style>
-	* :global(.imgRegion) {
-		max-height: 300px;
-	}
 </style>

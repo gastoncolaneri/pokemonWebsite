@@ -20,9 +20,11 @@
 	<link rel="stylesheet" href={themeRef2} media="screen and (prefers-color-scheme: dark)" />
 </svelte:head>
 
-<NavBar />
-<slot />
-<Footer />
+<div>
+	<NavBar />
+	<slot />
+	<Footer />
+</div>
 
 <style>
 </style>

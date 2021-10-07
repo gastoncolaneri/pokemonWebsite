@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@material/tab-scroller": "^13.0.0",
 		"@smui/button": "^5.0.0-beta.7",
 		"@smui/card": "^5.0.0-beta.7",
 		"@smui/common": "^5.0.0-beta.7",
