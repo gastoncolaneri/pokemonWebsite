@@ -9,24 +9,32 @@
 	import Tooltip, { Wrapper } from '@smui/tooltip';
 	import CardPokemon from './Opciones/CardPokemon.svelte';
 	import CardHabilidad from './Opciones/CardHabilidad.svelte';
-	import CardGeneracion from './Opciones/CardGeneracion.svelte';
+	import CardRegion from './Opciones/CardRegion.svelte';
 	import CardMovimiento from './Opciones/CardMovimiento.svelte';
+	import { busqueda } from '../../stores/busquedaStore';
 
 	let value = '';
 	let disableFab = true;
+	let opciones = ['Pokémon', 'Habilidad', 'Región', 'Movimiento'];
+	let selected = 'Pokémon';
 	$: {
 		if (value === '') {
 			disableFab = true;
+			busqueda.set(value.toLowerCase());
 		} else {
 			disableFab = false;
+			busqueda.set(value.toLowerCase());
 		}
 	}
+
+	$: {
+		selected;
+		value = '';
+	}
+
 	const alerta = () => {
 		alert('hola');
 	};
-
-	let opciones = ['Pokémon', 'Habilidad', 'Generación', 'Movimiento'];
-	let selected = 'Pokémon';
 </script>
 
 <main>
@@ -61,8 +69,8 @@
 			<CardPokemon />
 		{:else if selected === 'Habilidad'}
 			<CardHabilidad />
-		{:else if selected === 'Generación'}
-			<CardGeneracion />
+		{:else if selected === 'Región'}
+			<CardRegion />
 		{:else if selected === 'Movimiento'}
 			<CardMovimiento />
 		{/if}

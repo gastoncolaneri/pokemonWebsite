@@ -15,3 +15,4 @@ for (let i = 1; i < 9; i++) {
 
 export const pokemon = writable('');
 export const switcher = writable(true);
+export const busqueda = writable('');
