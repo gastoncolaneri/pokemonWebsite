@@ -15,16 +15,13 @@
 
 	let filter: any;
 	$: {
-		if ($busqueda !== '') {
-			filter = $regiones.filter((region) => region == $busqueda).sort();
+		let regionesFilter = $regiones.filter((region) => region == $busqueda).sort();
+		if ($busqueda !== '' && regionesFilter.length !== 0) {
+			filter = regionesFilter;
 		} else {
 			filter = $regiones.sort();
 		}
 	}
-
-	onDestroy(() => {
-		filter = 'holanda';
-	});
 </script>
 
 <div class="card-container">
