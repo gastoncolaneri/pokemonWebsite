@@ -9,7 +9,6 @@
 	} from '@smui/image-list';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import Paper, { Title, Subtitle, Content } from '@smui/paper';
-	import { onDestroy } from 'svelte';
 	import { regiones } from '../../../stores/busquedaStore';
 	import { busqueda } from '../../../stores/busquedaStore';
 
