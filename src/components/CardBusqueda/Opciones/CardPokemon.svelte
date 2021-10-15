@@ -65,8 +65,8 @@
 							{/if}
 						</Cell>
 						<Cell>
-							<a href={`/pokemon/${i + start + 1}`} class="links">
-								<Button><IconButton class="material-icons">info</IconButton></Button></a
+							<a href={`/pokemon/${i + start + 1}`} class="links icons">
+								<IconButton class="material-icons">info</IconButton></a
 							>
 						</Cell>
 					</Row>
@@ -83,9 +83,9 @@
 							{/if}
 						</Cell>
 						<Cell>
-							<a href={`/pokemon/${item.id}`} class="links">
-								<Button><IconButton class="material-icons">info</IconButton></Button></a
-							>
+							<a href={`/pokemon/${i + start + 1}`} class="links icons">
+								<IconButton class="material-icons">info</IconButton>
+							</a>
 						</Cell>
 					</Row>
 				{/if}
@@ -145,5 +145,6 @@
 	}
 	.links {
 		text-decoration: none;
+		color: #ff3e00;
 	}
 </style>
