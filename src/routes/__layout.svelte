@@ -5,8 +5,11 @@
 
 	let themeRef1: string;
 	let themeRef2: string;
+	let switchMode: any;
+
 	$: {
-		if ($switcher) {
+		switchMode = localStorage.getItem('switch');
+		if (switchMode === 'true') {
 			themeRef1 = '/smui.css';
 			themeRef2 = '/site.css';
 		} else {

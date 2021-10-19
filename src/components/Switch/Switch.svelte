@@ -1,10 +1,9 @@
 <script lang="ts">
 	let checked1 = false;
-	import { switcher } from '../../stores/store';
 	import IconButton, { Icon } from '@smui/icon-button';
 
 	const switchButton = () => {
-		switcher.set(checked1);
+		localStorage.setItem('switch', checked1.toString());
 	};
 </script>
 
