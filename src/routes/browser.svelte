@@ -7,16 +7,16 @@
 	import Button from '@smui/button';
 	import { Label } from '@smui/common';
 	import Tooltip, { Wrapper } from '@smui/tooltip';
-	import CardPokemon from './Opciones/CardPokemon.svelte';
-	import CardHabilidad from './Opciones/CardHabilidad.svelte';
-	import CardRegion from './Opciones/CardRegion.svelte';
-	import CardMovimiento from './Opciones/CardMovimiento.svelte';
-	import { busqueda } from '../../stores/busquedaStore';
+	import CardPokemon from '../components/CardBrowser/Choices/CardPokemon.svelte';
+	import CardAbility from '../components/CardBrowser/Choices/CardAbility.svelte';
+	import CardRegion from '../components/CardBrowser/Choices/CardRegion.svelte';
+	import CardMovement from '../components/CardBrowser/Choices/CardMovement.svelte';
+	import { busqueda } from '../stores/store';
 
 	let value = '';
 	let disableFab = true;
-	let opciones = ['Pokémon', 'Habilidad', 'Región', 'Movimiento'];
-	let selected = 'Pokémon';
+	let opciones = ['Pokemon', 'Ability', 'Region', 'Movement'];
+	let selected = 'Pokemon';
 	$: {
 		if (value === '') {
 			disableFab = true;
@@ -37,6 +37,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Browser</title>
+</svelte:head>
+
 <main>
 	<div class="solo-container">
 		<SegmentedButton segments={opciones} let:segment singleSelect bind:selected>
@@ -44,35 +48,26 @@
 				<Segment {segment}>
 					<Label>{segment}</Label>
 				</Segment>
-				<Tooltip>Busqueda por {segment}</Tooltip>
+				<Tooltip>Search by {segment}</Tooltip>
 			</Wrapper>
 		</SegmentedButton>
 	</div>
 	<div class="solo-demo-container solo-container">
 		<Paper class="solo-paper" elevation={6}>
 			<Icon class="material-icons">search</Icon>
-			<Input bind:value placeholder="Buscar" class="solo-input" />
+			<Input bind:value placeholder="Search" class="solo-input" />
 		</Paper>
-		<Fab
-			disabled={disableFab}
-			color={disableFab ? 'secondary' : 'primary'}
-			mini
-			class="solo-fab"
-			on:click={alerta}
-		>
-			<Icon class="material-icons">arrow_forward</Icon>
-		</Fab>
 	</div>
 
 	<div class="solo-demo-container solo-container">
-		{#if selected === 'Pokémon'}
+		{#if selected === 'Pokemon'}
 			<CardPokemon />
-		{:else if selected === 'Habilidad'}
-			<CardHabilidad />
-		{:else if selected === 'Región'}
+		{:else if selected === 'Ability'}
+			<CardAbility />
+		{:else if selected === 'Region'}
 			<CardRegion />
-		{:else if selected === 'Movimiento'}
-			<CardMovimiento />
+		{:else if selected === 'Movement'}
+			<CardMovement />
 		{/if}
 	</div>
 </main>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NavBar from '../components/NavBar/NavBar.svelte';
 	import Footer from '../components/Footer/Footer.svelte';
-	import { switcher } from '../stores/busquedaStore';
+	import { switcher } from '../stores/store';
 
 	let themeRef1: string;
 	let themeRef2: string;

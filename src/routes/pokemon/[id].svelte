@@ -10,15 +10,13 @@
 	} from '@smui/image-list';
 	import { onMount } from 'svelte';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
-	import { pokemonDetalle } from '../../api/busquedas/pokemonDetalle';
+	import { pokemonDetail } from '../../api/browser/pokemonDetail';
 
 	let pokemonInfo: any;
 
 	onMount(() => {
-		pokemonDetalle(parseInt($page.params.id)).then((poke) => {
+		pokemonDetail(parseInt($page.params.id)).then((poke) => {
 			pokemonInfo = poke.name;
-			console.log(pokemonInfo);
-			console.log(pokemonInfo.name);
 		});
 	});
 </script>

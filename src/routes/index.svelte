@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Inicio</title>
+	<title>Home</title>
 </svelte:head>
 
-<h1>Inicio</h1>
+<h1>Home</h1>
