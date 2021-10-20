@@ -75,7 +75,7 @@
 <style>
 	.solo-demo-container {
 		padding: 36px 18px;
-		background-color: var(--mdc-theme-background, #f8f8f8);
+		background-color: var(--mdc-theme-background);
 	}
 
 	.solo-container {
@@ -98,10 +98,10 @@
 	}
 	* :global(.solo-input) {
 		flex-grow: 1;
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--mdc-theme-on-surface);
 	}
 	* :global(.solo-input::placeholder) {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--mdc-theme-on-surface);
 		opacity: 0.6;
 	}
 	* :global(.solo-fab) {

@@ -11,19 +11,30 @@
 	import { onMount } from 'svelte';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import { pokemonDetail } from '../../api/browser/pokemonDetail';
+	import Loader from '../../components/Loader/Loader.svelte';
 
 	let pokemonInfo: any;
+	let id: number;
+	let promisePokemon: any;
 
-	onMount(() => {
-		pokemonDetail(parseInt($page.params.id)).then((poke) => {
-			pokemonInfo = poke.name;
-		});
-	});
+	if (parseInt($page.params.id) > 898) {
+		id = parseInt($page.params.id) + 9102;
+		console.log(id);
+	} else {
+		id = parseInt($page.params.id);
+		console.log(id);
+	}
+
+	promisePokemon = pokemonDetail(id);
 </script>
 
-<div class="card-container">
-	<h2 class="mdc-typography--headline6" style="margin: 0;">{pokemonInfo}</h2>
-</div>
+{#await promisePokemon}
+	<Loader />
+{:then pokemon}
+	<div class="card-container">
+		<h2 class="mdc-typography--headline4" style="margin: 0;">{pokemon.name}</h2>
+	</div>
+{/await}
 
 <style>
 </style>

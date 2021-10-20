@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 		<link
 			rel="stylesheet"
@@ -10,14 +12,13 @@
 		/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono" />
 		<link rel="stylesheet" href="/smui.css" media="(prefers-color-scheme: light)" />
-		<link rel="stylesheet" href="/site.css" media="(prefers-color-scheme: light)" />
-
+		<link rel="stylesheet" href="/smui-dark.css" media="screen and (prefers-color-scheme: dark)" />
 		<script src="https://kit.fontawesome.com/b0962e89dc.js" crossorigin="anonymous"></script>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%svelte.head%
 	</head>
 	<body>
-		<div id="svelte" translate="yes">%svelte.body%</div>
+		<div id="svelte">%svelte.body%</div>
 	</body>
 </html>

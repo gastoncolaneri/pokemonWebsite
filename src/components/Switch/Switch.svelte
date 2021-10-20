@@ -5,6 +5,7 @@
 
 	const switchButton = () => {
 		switcher.set(checked1);
+		// localStorage.setItem('switcher', checked1.toString());
 	};
 </script>
 

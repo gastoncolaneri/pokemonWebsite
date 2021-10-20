@@ -1,32 +1,45 @@
 <script lang="ts">
 	import NavBar from '../components/NavBar/NavBar.svelte';
+	import IconButton, { Icon } from '@smui/icon-button';
 	import Footer from '../components/Footer/Footer.svelte';
-	import { switcher } from '../stores/store';
 
-	let themeRef1: string;
-	let themeRef2: string;
-
-	$: {
-		if ($switcher) {
-			themeRef1 = '/smui.css';
-			themeRef2 = '/site.css';
-		} else {
-			themeRef1 = '/smui-dark.css';
-			themeRef2 = '/site-dark.css';
+	let lightTheme =
+		typeof window === 'undefined' || window.matchMedia('(prefers-color-scheme: light)').matches;
+	function switchTheme() {
+		lightTheme = !lightTheme;
+		let themeLink = document.head.querySelector<HTMLLinkElement>('#theme');
+		if (!themeLink) {
+			themeLink = document.createElement('link');
+			themeLink.rel = 'stylesheet';
+			themeLink.id = 'theme';
 		}
+		themeLink.href = `/smui${lightTheme ? '' : '-dark'}.css`;
+		document.head
+			.querySelector<HTMLLinkElement>('link[href="/smui-dark.css"]')
+			?.insertAdjacentElement('afterend', themeLink);
 	}
 </script>
 
-<svelte:head>
-	<link rel="stylesheet" href={themeRef1} media="screen and (prefers-color-scheme: dark)" />
-	<link rel="stylesheet" href={themeRef2} media="screen and (prefers-color-scheme: dark)" />
-</svelte:head>
-
 <div>
-	<NavBar />
+	<div class="navContainer">
+		<NavBar />
+		<div>
+			<IconButton toggle on:click={switchTheme}>
+				<Icon class="material-icons" on>light_mode</Icon>
+				<Icon class="material-icons">dark_mode</Icon>
+			</IconButton>
+		</div>
+	</div>
+
 	<slot />
 	<Footer />
 </div>
 
 <style>
+	.navContainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 20px;
+	}
 </style>
