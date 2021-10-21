@@ -1,10 +1,8 @@
 <script>
 	import { Input } from '@smui/textfield';
 	import Paper from '@smui/paper';
-	import Fab from '@smui/fab';
 	import { Icon } from '@smui/common';
 	import SegmentedButton, { Segment } from '@smui/segmented-button';
-	import Button from '@smui/button';
 	import { Label } from '@smui/common';
 	import Tooltip, { Wrapper } from '@smui/tooltip';
 	import CardPokemon from '../components/CardBrowser/Choices/CardPokemon.svelte';
@@ -14,15 +12,12 @@
 	import { busqueda } from '../stores/store';
 
 	let value = '';
-	let disableFab = true;
 	let opciones = ['Pokemon', 'Ability', 'Region', 'Movement'];
 	let selected = 'Pokemon';
 	$: {
 		if (value === '') {
-			disableFab = true;
 			busqueda.set(value.toLowerCase());
 		} else {
-			disableFab = false;
 			busqueda.set(value.toLowerCase());
 		}
 	}
@@ -31,10 +26,6 @@
 		selected;
 		value = '';
 	}
-
-	const alerta = () => {
-		alert('hola');
-	};
 </script>
 
 <svelte:head>

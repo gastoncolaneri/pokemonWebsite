@@ -25,8 +25,8 @@
 		<NavBar />
 		<div>
 			<IconButton toggle on:click={switchTheme}>
-				<Icon class="material-icons" on>light_mode</Icon>
-				<Icon class="material-icons">dark_mode</Icon>
+				<Icon class="material-icons" on>dark_mode</Icon>
+				<Icon class="material-icons">light_mode</Icon>
 			</IconButton>
 		</div>
 	</div>

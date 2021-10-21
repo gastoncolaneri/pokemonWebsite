@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 
 	let active: any;
-	let activeTab: any;
+	let activeTab: any = '/';
 	let selected: any;
 
 	onMount(() => {
