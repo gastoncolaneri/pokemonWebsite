@@ -63,10 +63,20 @@
 							<Cell>
 								{#if i + start + 1 < 899}
 									<img
-										src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i +
+										src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{i +
 											start +
 											1}.png"
 										alt="Imagen no encontrada"
+										class="imgPokemon"
+									/>
+								{:else}
+									<img
+										src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{i +
+											start +
+											1 +
+											9102}.png"
+										alt="Imagen no encontrada"
+										class="imgPokemon"
 									/>
 								{/if}
 							</Cell>
@@ -83,8 +93,16 @@
 							<Cell>
 								{#if item.id < 899}
 									<img
-										src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{item.id}.png"
+										src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{item.id}.png"
 										alt="Imagen no encontrada"
+										class="imgPokemon"
+									/>
+								{:else}
+									<img
+										src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{item.id +
+											+9102}.png"
+										alt="Imagen no encontrada"
+										class="imgPokemon"
 									/>
 								{/if}
 							</Cell>
@@ -153,5 +171,8 @@
 	.links {
 		text-decoration: none;
 		color: #ff3e00;
+	}
+	.imgPokemon {
+		width: 100px;
 	}
 </style>
