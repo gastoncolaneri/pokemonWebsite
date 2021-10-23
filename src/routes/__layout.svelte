@@ -2,6 +2,9 @@
 	import NavBar from '../components/NavBar/NavBar.svelte';
 	import IconButton, { Icon } from '@smui/icon-button';
 	import Footer from '../components/Footer/Footer.svelte';
+	import { onMount, afterUpdate } from 'svelte';
+	import Loader from '../components/Loader/Loader.svelte';
+	let flag: boolean = true;
 
 	let lightTheme =
 		typeof window === 'undefined' || window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -18,10 +21,14 @@
 			.querySelector<HTMLLinkElement>('link[href="/smui-dark.css"]')
 			?.insertAdjacentElement('afterend', themeLink);
 	}
+
+	afterUpdate(() => {
+		flag = false;
+	});
 </script>
 
 <div>
-	<div class="navContainer">
+	<div class="container">
 		<NavBar />
 		<div>
 			<IconButton toggle on:click={switchTheme}>
@@ -30,13 +37,18 @@
 			</IconButton>
 		</div>
 	</div>
-
-	<slot />
+	{#if flag}
+		<div class="container">
+			<Loader />
+		</div>
+	{:else}
+		<slot />
+	{/if}
 	<Footer />
 </div>
 
 <style>
-	.navContainer {
+	.container {
 		display: flex;
 		justify-content: center;
 		align-items: center;

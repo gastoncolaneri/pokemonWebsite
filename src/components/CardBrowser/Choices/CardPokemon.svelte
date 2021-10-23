@@ -4,7 +4,7 @@
 	import IconButton from '@smui/icon-button';
 	import { Label } from '@smui/common';
 	import Button from '@smui/button/Button.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, beforeUpdate, afterUpdate } from 'svelte';
 	import { pokemonTable } from '../../../api/browser/pokemonTable';
 	import { busqueda, pokemon } from '../../../stores/store';
 	import Loader from '../../Loader/Loader.svelte';
@@ -39,6 +39,7 @@
 		rowsPerPage;
 		pokemonFilter = indice.filter((pok: any) => pok.nombre === $busqueda);
 		if ($busqueda !== '' && pokemonFilter[0] && pokemonFilter[0].nombre === $busqueda) {
+			console.log(pokemonFilter);
 			flat = false;
 			slice = pokemonFilter;
 		} else {
@@ -50,7 +51,9 @@
 
 <main style="height:100%">
 	{#if flatLoader}
-		<Loader />
+		<div class="card-container">
+			<Loader />
+		</div>
 	{:else}
 		<DataTable style="height: 100%">
 			<Head />

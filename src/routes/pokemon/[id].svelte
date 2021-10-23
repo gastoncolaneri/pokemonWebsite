@@ -26,9 +26,11 @@
 </script>
 
 {#await promisePokemon}
-	<Loader />
+	<div class="container ">
+		<Loader />
+	</div>
 {:then pokemon}
-	<div class="containerCard ">
+	<div class="container ">
 		<LayoutGrid>
 			<Cell span={6}>
 				<Card class="mdc-elevation--z15 cardBlock">
@@ -70,8 +72,8 @@
 {/await}
 
 <style>
-	.containerCard {
-		display: grid;
+	.container {
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
